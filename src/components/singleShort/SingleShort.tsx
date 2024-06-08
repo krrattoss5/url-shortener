@@ -1,28 +1,25 @@
-import { useEffect, useState } from "react"
-import { useLocation } from "react-router-dom"
+import { useEffect } from "react"
+import { useParams } from "react-router-dom"
 
 const SingleShort = () => {
-  const shortId = useLocation().pathname
-  const [url, setURL] = useState<string | null>('')
+  const {shortId} = useParams()
 
   useEffect(() => {
-    fetch(`http://localhost:3001${shortId}`)
+    fetch(`http://localhost:3001/${shortId}`)
       .then(res => res.json())
-      .then(data => setURL(data))
-      .catch((error) => console.log({message: error.message}))
-
-      url
-        ? window.location.href = url
+      .then(data => {
+        data
+        ? window.location.href = data
         : null
+      })
+      .catch((error) => console.log({message: error.message}))
 
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+  console.log(shortId)
 
   return (
     <div>
-      {url
-        ? window.location.href = url
-        : null}
     </div>
   )
 }
