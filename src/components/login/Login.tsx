@@ -1,13 +1,9 @@
-import { FC, useState } from "react"
-import styles from './Login.module.css'
+import { useState } from "react"
 
-const Login: FC = () => {
+const Login = () => {
   const [user, setUser] = useState({
-      email:"",
-      password:"",
-      username:"",
-      name:"",
-      lastname:""
+    email:'',
+    password:''
   })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,29 +18,31 @@ const Login: FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    fetch('http://localhost:3001/create-user')
+    const response = await fetch('http://localhost:3001/login',{
+      method: "POST",
+      headers: {
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify(user)
+    })
+
+    const data = await response.json()
+
+    if(data?.token){
+      localStorage.setItem('token',data.token)
+    } else {
+      alert(data.message)
+    }
+    console.log(data)
   }
 
   return (
-    <form className={styles.form}>
-      <input name="name" value={user.name} type="text" placeholder="Nombre" onChange={handleChange} />
-      <input name="lastname" value={user.lastname} type="text" placeholder="Apellido" onChange={handleChange}  />
-      <input name="username" value={user.username} type="text" placeholder="Nik" onChange={handleChange}  />
-      <input name="email" value={user.email} type="email" placeholder="Correo" onChange={handleChange}  />
-      <input type="password" placeholder="Contraseña" onChange={handleChange}  />
-      <input name="password" value={user.password} type="password" placeholder="Confirmar Contraseña" onChange={handleChange}  />
-
-      <button type="submit">crear</button>
+    <form onSubmit={handleSubmit}>
+      <input name="email" value={user.email} type="text" onChange={handleChange} />
+      <input name="password" value={user.password} type="password" onChange={handleChange} />
+      <button type="submit">entrar</button>
     </form>
   )
 }
-
-// {
-//   "email":"krrattoss5@gmail.com",
-//   "password":"19568514Lj.",
-//   "username":"Krrattoss5",
-//   "name":"Didier",
-//   "lastname":"Pereira"
-// }
 
 export default Login
