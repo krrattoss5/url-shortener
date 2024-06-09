@@ -101,3 +101,35 @@
   text-align: center;
   margin-top: 20px;
 }
+
+.slogan {
+  width: 100;
+  padding: 80px 0 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #0b1736;
+}
+
+.slogan h3 {
+  font-size: 36px;
+  color: #fff;
+  text-align: center;
+}
+
+.slogan button {
+  background: #2a5bd7;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all .3s ease;
+  width: auto;
+  padding: 18px 30px;
+}
+
+.slogan button:hover {
+  background:#244eb8
+}
