@@ -4,11 +4,15 @@ import CreateShortURL from './components/createShortURL/CreateShortURL'
 import SingleShort from './components/singleShort/SingleShort';
 import Register from './components/register/Register.tsx';
 import Login from './components/login/Login.tsx';
+import NavBar from './components/navBar/NavBar.tsx';
+import Landing from './components/landing/Landing.tsx';
 
 function App() {
 
   return (
     <div>
+      <NavBar />
+      <Landing />
       <Routes>
         <Route path='/' element={<CreateShortURL />} />
         <Route path='/crear-usuario' element={<Register />} />

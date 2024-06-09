@@ -1,0 +1,35 @@
+.container {
+  position: relative;
+  display: flex;
+}
+
+.section1 {
+  position: absolute;
+  width: 50vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section1 h2{
+  color: #56575b;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 14px 0 18px;
+}
+.section1 h1{
+  font-size: 62px;
+  font-weight: 800;
+  line-height: 56px;
+  margin: 0 0 8px;
+}
+
+.section2 {
+  width: 100%;
+}
+
+.img {
+  width: 100%;
+}

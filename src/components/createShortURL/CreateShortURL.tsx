@@ -9,11 +9,13 @@ const CreateShortURL: FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const url = inputRef.current?.value
-    // ToDo: peticion al API
+    const token = localStorage.getItem('token')
+
     fetch('http://localhost:3001', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`
       },
       body: JSON.stringify({url})
     }).then(res => res.json()).then(({shortUrl}) => {
@@ -34,7 +36,7 @@ const CreateShortURL: FC = () => {
             <input ref={inputRef} type="text" className={styles.input} placeholder='URL' />
             <button className={styles.button}>Acorta</button>
           </form>
-            {shortURL.length > 0 ? <a href={`http://localhost:3001/${shortURL}`} className={styles.url} target="blanc">
+            {shortURL?.length > 0 ? <a href={`http://localhost:3001/${shortURL}`} className={styles.url} target="blanc">
               {`http://localhost:3001/${shortURL}`}
             </a> : null}
         </div>

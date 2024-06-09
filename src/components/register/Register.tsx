@@ -49,12 +49,4 @@ const Register: FC = () => {
   )
 }
 
-// {
-//   "email":"krrattoss5@gmail.com",
-//   "password":"19568514Lj.",
-//   "username":"Krrattoss5",
-//   "name":"Didier",
-//   "lastname":"Pereira"
-// }
-
 export default Register

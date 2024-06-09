@@ -33,7 +33,6 @@ const Login = () => {
     } else {
       alert(data.message)
     }
-    console.log(data)
   }
 
   return (
