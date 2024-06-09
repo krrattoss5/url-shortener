@@ -58,6 +58,7 @@
   border-radius: 10px;
   text-align: center;
   align-self: flex-start;
+  transition: all .3s ease;
   }
 
   .getStared:hover {

@@ -6,6 +6,7 @@ import Register from './components/register/Register.tsx';
 import Login from './components/login/Login.tsx';
 import NavBar from './components/navBar/NavBar.tsx';
 import Landing from './components/landing/Landing.tsx';
+import Footer from './components/footer/Footer.tsx';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path='/iniciar-sesion' element={<Login />} />
         <Route path='/:shortId' element={<SingleShort />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
