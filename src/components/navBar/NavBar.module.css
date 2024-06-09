@@ -27,6 +27,8 @@
 
 .link{
   color:#031f39;
+  background: none;
+  border: none;
   font-size: 18px;
   display: flex;
   justify-content: center;
@@ -38,10 +40,10 @@
   transition: all .3s ease;
   }
 
-  .link:hover{
-    background-color: #d6d2c9;
-    border-radius: 10px;
-  }
+.link:hover{
+  background-color: #d6d2c9;
+  border-radius: 10px;
+}
 
 .link2{
   font-weight: 600;

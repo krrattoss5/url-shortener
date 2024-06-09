@@ -1,6 +1,21 @@
+import { useState } from 'react'
+import { getStaredShortener } from '../../constants'
 import { LinkIcon } from '../icons'
 import s from './StartedFree.module.css'
 const StartedFree = () => {
+  const [url, setUrl] = useState('')
+
+  const handleClick = () => {
+    getStaredShortener(url)
+    setUrl('')
+    window.location.href = '/iniciar-sesion'
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault()
+    setUrl(e.target.value)
+  }
+
   return (
     <>
       <section className={s.container}>
@@ -15,8 +30,8 @@ const StartedFree = () => {
           <div className={s.board}>
             <p>Shorten a long link</p>
             <label>Paste a long URL</label>
-            <input type="text" placeholder='Example: http://super-long-link.com/short-it' />
-            <button>Sigin up and get your link</button>
+            <input name='url' value={url} type="text" placeholder='Example: http://super-long-link.com/short-it' onChange={handleChange} />
+            <button onClick={handleClick}>Sigin up and get your link</button>
             <strong>No credit card required this is FREE.</strong>
           </div>
         </div>
@@ -25,6 +40,8 @@ const StartedFree = () => {
       </section>
       <div className={s.slogan}>
         <h3>More than a free link shortener</h3>
+        <br />
+        <br />
         <button>Get Stared</button>
       </div>
     </>
