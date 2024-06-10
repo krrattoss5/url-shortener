@@ -1,0 +1,108 @@
+.container {
+  height: 100vh;
+  padding-top: 0px;
+  border-right:solid 1px #d7d7d7;
+}
+
+.ContainerToggle {
+  background: #fff;
+  padding: 7px;
+  transition: all .5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.ContainerToggle div {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.ContainerToggle div:hover {
+  background-color: #f4f6fa;
+}
+
+.ContainerToggle div:focus {
+  background: #edf2ff;
+  color: #0c3ebb;
+}
+
+.ContainerToggle img {
+  align-self: flex-start;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 15px
+}
+
+.buttonToggleOf {
+  position: fixed;
+  left: 4%;
+  top: 5%;
+  z-index: 9999;
+  padding: 7px 9px;
+  border-radius: 20px;
+  background: #fff;
+  border: solid 1px #d7d7d7;
+  box-shadow: 0 0 3px #d7d7d7;
+}
+
+.buttonToggleOn {
+  position: fixed;
+  left: 17%;
+  top: 5%;
+  z-index: 9999;
+  padding: 7px 9px;
+  border-radius: 20px;
+  background: #fff;
+  border: solid 1px #d7d7d7;
+  box-shadow: 0 0 3px #d7d7d7;
+}
+
+.noToggle {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.separator {
+  width: 90%;
+  height: 2px;
+  margin: 20px 0 0 0;
+  background: #d7d7d7;
+}
+
+.buttonOnToggle{
+  background: #022d94;
+  color: #fff;
+  border: none;
+  margin-top: 15px;
+  padding: 8px 8px;
+  border-radius: 5px;
+  width: 80%;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 .2rem .8rem rgba(0, 0, 0, .24);
+}
+
+.buttonOnToggle:hover{
+  background: #0c3ebb;
+}
+
+.buttonNoToggle{
+  background: #022d94;
+  color: #fff;
+  border: none;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 10px;
+  border-radius: 5px;
+  width: 95%;
+  box-shadow: 0 .2rem .8rem rgba(0, 0, 0, .24);
+}

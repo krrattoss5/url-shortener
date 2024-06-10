@@ -12,7 +12,7 @@ import PublicRoute from './components/verifyAuth/PublicRoute.tsx';
 
 function App() {
   const {pathname} = useLocation()
-  const showBar = pathname !== '/iniciar-sesion' && pathname !== '/crear-usuario'
+  const showBar = pathname !== '/iniciar-sesion' && pathname !== '/crear-usuario' && pathname !== '/dashboard'
 
 
 
