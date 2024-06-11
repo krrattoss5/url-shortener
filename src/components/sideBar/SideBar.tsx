@@ -1,51 +1,47 @@
-import { useState } from "react"
-import { ConfigIcon, HomeIcon, LinkIcon, MinusTo, PlusIcon, PlusToIcon } from "../icons"
-import s from './SideBar.module.css'
+import { useState } from "react";
+import { ConfigIcon, HomeIcon, LinkIcon, PlusIcon } from "../icons";
+import s from './SideBar.module.css';
+import NavigationLink from './NavigationLink.tsx';
+import ToggleButton from './ToggleButton.tsx';
+
+const NAV_LINKS = [
+  { to: '/dashboard/home', icon: <HomeIcon />, label: 'Home' },
+  { to: '/dashboard/links', icon: <LinkIcon />, label: 'Links' },
+  { to: '/dashboard/settings', icon: <ConfigIcon />, label: 'Settings' }
+];
 
 const SideBar = () => {
-  const [isToggle, setIsToggle] = useState(false)
+  const [isToggle, setIsToggle] = useState(false);
 
-  const handleIsToggle = () => setIsToggle(!isToggle)
+  const handleIsToggle = () => setIsToggle(!isToggle);
 
   return (
-    <div style={{width: `${!isToggle ? '18%' : '5%'}`}} className={s.container}>
-
+    <div style={{ width: isToggle ? '5%' : '19%' }} className={s.container}>
       <section className={s.ContainerToggle}>
+        <ToggleButton isToggle={isToggle} handleIsToggle={handleIsToggle} />
 
-        <button onClick={handleIsToggle} className={isToggle ? s.buttonToggleOf : s.buttonToggleOn}>{!isToggle ? <MinusTo /> : <PlusToIcon />}</button>
+        <img src="/favicon.ico" alt="favicon" className={s.favicon} />
 
-        <img src="/favicon.ico" alt="fabicon" />
-
-        <button className={!isToggle ? s.buttonNoToggle : s.buttonOnToggle}>
-          {!isToggle ? 'Create new' : <PlusIcon />}
+        <button className={isToggle ? s.buttonOnToggle : s.buttonNoToggle}>
+          {isToggle ? <PlusIcon /> : 'Create new'}
         </button>
 
-        <span className={s.separator} ></span>
+        <span className={s.separator}></span>
 
-        <div className={s.noToggle}>
-          <span></span>
-          <HomeIcon />
-          {!isToggle && <span>Home</span>}
-        </div>
+        {NAV_LINKS.map(link => (
+          <NavigationLink
+            key={link.to}
+            to={link.to}
+            icon={link.icon}
+            label={link.label}
+            isToggle={isToggle}
+          />
+        ))}
 
-        <div className={s.noToggle}>
-          <span></span>
-          <LinkIcon />
-          {!isToggle && <span>Links</span>}
-        </div>
-
-        <div className={s.noToggle}>
-          <span></span>
-          <ConfigIcon />
-          {!isToggle && <span>Settings</span>}
-        </div>
-
-        <span className={s.separator} ></span>
-
+        <span className={s.separator}></span>
       </section>
-
     </div>
-  )
-}
+  );
+};
 
-export default SideBar
+export default SideBar;
