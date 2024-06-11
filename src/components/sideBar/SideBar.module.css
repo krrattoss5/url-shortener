@@ -1,48 +1,69 @@
 .container {
   height: 100vh;
   padding-top: 0px;
-  border-right:solid 1px #d7d7d7;
+  border-right: solid 1px #d7d7d7;
 }
 
-.ContainerToggle {
-  background: #fff;
-  padding: 7px;
-  transition: all .5s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.ContainerToggle div {
-  width: 100%;
+.noToggleActive {
+  color: #0c3ebb;
+  background: #f4f6fa;
+  transition: all 0.5s ease;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 12px;
+  width: auto;
+  margin: 10px;
   padding: 10px 0;
+  text-decoration: none;
 }
 
-.ContainerToggle div:hover {
-  background-color: #f4f6fa;
+.noToggleActive span {
+  width: 4px;
+  border-radius: 2px;
+  height: 100%;
+  background-color: #0c3ebb;
 }
 
-.ContainerToggle div:focus {
-  background: #edf2ff;
-  color: #0c3ebb;
+.noToggle {
+  color: #273144;
+  background: #fff;
+  transition: all 0.5s ease;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  width: auto;
+  margin: 10px;
+  padding: 10px 0;
+  text-decoration: none;
+}
+
+.noToggle span {
+  color: #fff;
+}
+
+.noToggle:hover {
+  background: #f4f6fa;
+  border-radius: 5px;
+}
+
+.ContainerToggle {
+  padding-left: 10px;
 }
 
 .ContainerToggle img {
   align-self: flex-start;
   margin-top: 10px;
   margin-left: 10px;
-  margin-bottom: 15px
+  margin-bottom: 15px;
 }
 
-.buttonToggleOf {
+.buttonToggleOf,
+.buttonToggleOn {
   position: fixed;
   left: 4%;
-  top: 5%;
+  top: 7%;
   z-index: 9999;
   padding: 7px 9px;
   border-radius: 20px;
@@ -52,22 +73,7 @@
 }
 
 .buttonToggleOn {
-  position: fixed;
-  left: 17%;
-  top: 5%;
-  z-index: 9999;
-  padding: 7px 9px;
-  border-radius: 20px;
-  background: #fff;
-  border: solid 1px #d7d7d7;
-  box-shadow: 0 0 3px #d7d7d7;
-}
-
-.noToggle {
-  margin: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  left: 14%;
 }
 
 .separator {
@@ -77,24 +83,8 @@
   background: #d7d7d7;
 }
 
-.buttonOnToggle{
-  background: #022d94;
-  color: #fff;
-  border: none;
-  margin-top: 15px;
-  padding: 8px 8px;
-  border-radius: 5px;
-  width: 80%;
-  font-weight: bold;
-  font-size: 16px;
-  box-shadow: 0 .2rem .8rem rgba(0, 0, 0, .24);
-}
-
-.buttonOnToggle:hover{
-  background: #0c3ebb;
-}
-
-.buttonNoToggle{
+.buttonOnToggle,
+.buttonNoToggle {
   background: #022d94;
   color: #fff;
   border: none;
@@ -104,5 +94,18 @@
   padding: 10px 10px;
   border-radius: 5px;
   width: 95%;
-  box-shadow: 0 .2rem .8rem rgba(0, 0, 0, .24);
+  box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.24);
+}
+
+.buttonOnToggle {
+  background: #022d94;
+  color: #fff;
+  padding: 8px 8px;
+  width: 80%;
+  font-weight: bold;
+}
+
+.buttonOnToggle:hover,
+.buttonNoToggle:hover {
+  background: #0c3ebb;
 }
