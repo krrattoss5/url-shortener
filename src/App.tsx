@@ -12,7 +12,10 @@ import PublicRoute from './components/verifyAuth/PublicRoute.tsx';
 
 function App() {
   const {pathname} = useLocation()
-  const showBar = pathname !== '/iniciar-sesion' && pathname !== '/crear-usuario' && pathname !== '/dashboard'
+  const showBar = !(
+    pathname !== '/iniciar-sesion'
+    && pathname !== '/crear-usuario'
+    && pathname.startsWith('/dashboard'))
 
 
 
@@ -23,7 +26,7 @@ function App() {
         <Route path='/' element={<PublicRoute element={<Landing />} />} />
         <Route path='/crear-usuario' element={<PublicRoute element={<Register />} />} />
         <Route path='/iniciar-sesion' element={<PublicRoute element={<Login />} />} />
-        <Route path='/dashboard' element={<ProtectedRoute element={<Dashboard />} />} />
+        <Route path='/dashboard/*' element={<ProtectedRoute element={<Dashboard />} />} />
       </Routes>
       <Footer />
     </div>
