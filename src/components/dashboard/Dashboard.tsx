@@ -24,7 +24,7 @@ const Dashboard = () => {
               <Route path='/home' element={<Home />} />
               <Route path='/links' element={<Links />} />
               <Route path='/settings' element={<Settings />} />
-              <Route path='/create' element={<CreateShortURL />} />
+              <Route path='/links/create' element={<CreateShortURL />} />
             </Routes>
           </Suspense>
         </div>
