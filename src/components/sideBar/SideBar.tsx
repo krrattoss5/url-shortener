@@ -26,8 +26,6 @@ const SideBar = () => {
           {isToggle ? <PlusIcon /> : 'Create new'}
         </button>
 
-        <span className={s.separator}></span>
-
         {NAV_LINKS.map(link => (
           <NavigationLink
             key={link.to}
@@ -38,7 +36,6 @@ const SideBar = () => {
           />
         ))}
 
-        <span className={s.separator}></span>
       </section>
     </div>
   );
