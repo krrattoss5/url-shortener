@@ -14,3 +14,5 @@ export const getStaredShortener = (url: string) => {
     return
 
 }
+
+export const getFavicon = 'https://s2.googleusercontent.com/s2/favicons?domain='
