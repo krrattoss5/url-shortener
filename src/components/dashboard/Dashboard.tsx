@@ -5,7 +5,7 @@ import SideBar from '../sideBar/SideBar'
 import s from './Dashboard.module.css'
 import CreateShortURL from '../createShortURL/CreateShortURL.tsx'
 const Home = lazy(() => import('./Home.tsx'))
-const Links = lazy(() => import('./Links.tsx'))
+const Links = lazy(() => import('../links/Links.tsx'))
 const Settings = lazy(() => import('./Settings.tsx'))
 
 const Dashboard = () => {
