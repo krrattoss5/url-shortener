@@ -3,6 +3,7 @@ import { ConfigIcon, HomeIcon, LinkIcon, PlusIcon } from "../icons";
 import s from './SideBar.module.css';
 import NavigationLink from './NavigationLink.tsx';
 import ToggleButton from './ToggleButton.tsx';
+import { Link } from "react-router-dom";
 
 const NAV_LINKS = [
   { to: '/dashboard/home', icon: <HomeIcon />, label: 'Home' },
@@ -22,9 +23,11 @@ const SideBar = () => {
 
         <img src="/favicon.ico" alt="favicon" className={s.favicon} />
 
-        <button className={isToggle ? s.buttonOnToggle : s.buttonNoToggle}>
-          {isToggle ? <PlusIcon /> : 'Create new'}
-        </button>
+        <Link to='/dashboard/links/create'>
+          <button className={isToggle ? s.buttonOnToggle : s.buttonNoToggle}>
+            {isToggle ? <PlusIcon /> : 'Create new'}
+          </button>
+        </Link>
 
         {NAV_LINKS.map(link => (
           <NavigationLink
