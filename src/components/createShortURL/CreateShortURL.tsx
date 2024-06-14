@@ -33,6 +33,8 @@ const CreateShortURL: FC = () => {
       console.log(shortURL)
       setShortURL(shortUrl);
     });
+
+    window.location.href = '/dashboard/links'
   };
 
   const handleClipboard = () => navigator.clipboard.writeText(`http://localhost:3001/${shortURL}`);
