@@ -1,7 +1,16 @@
-const Links = () => {
+import { type Urls } from "../../Types"
+import Cards from "./Cards.tsx"
+import s from '../dashboard/Dashboard.module.css'
+
+interface Props {
+  links: Urls[] | null
+}
+
+const Links = ({links}: Props) => {
   return (
-    <div>
-      <h1>Links</h1>
+    <div className={s.containerSection} >
+      <h1 className={s.title}>Bitly Clone Links</h1>
+      {links && <Cards links={links} />}
     </div>
   )
 }
