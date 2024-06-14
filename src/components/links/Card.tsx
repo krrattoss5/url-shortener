@@ -1,16 +1,50 @@
+import { type Urls } from "../../Types.d";
 import { getFavicon } from "../../constants"
+import { CalendarIcon, ClipBoardIcon, OrbIcon, ShareIcon, UpdateIcon } from "../icons"
+import s from './index.module.css'
 
-const Card = ({name,id,url,shortUrl,createdAt,clicks,domain}) => {
+interface Props {
+  link: Urls
+}
+
+const Card = ({link}: Props) => {
+  const handleClipboard = () => navigator.clipboard.writeText(`http://localhost:3001/${link.shortUrl}`);
+
   return (
-    <div>
-      <img src={getFavicon + domain} alt="" />
-      <h2>{name}</h2>
-      <h2>{id}</h2>
-      <h2>{url}</h2>
-      <h2>{shortUrl}</h2>
-      <h2>{createdAt}</h2>
-      <h2>{clicks}</h2>
-      <h2>{domain}</h2>
+    <div className={s.cardContainer}>
+
+      <div className={s.cardLeft}>
+
+        <div className={s.imageContainer}>
+          <img src={getFavicon + link.domain} alt="" />
+        </div>
+
+        <div>
+          <h2 className={s.cardTitle}>{link.name?.length < 1 ? 'untitled' : link.name}</h2>
+          <a className={s.shorted} target="blanc" href={`http://localhost:3001/${link.shortUrl}`}>{`http://localhost:3001/${link.shortUrl}`}</a>
+          <a className={s.url} target="blanc" href={link.url}>{link.url}...</a>
+
+          <div className={s.tagsContainer}>
+            <span><OrbIcon />{link.clicks}engagements</span>
+            <span><CalendarIcon />{link.createdAt && link.createdAt.slice(0,10).split('-').reverse().join('/')}</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div className={s.cardRight}>
+        <button className={s.clipboard} onClick={handleClipboard}>
+          <ClipBoardIcon /> Copy
+        </button>
+        <button className={s.buttons} onClick={handleClipboard}>
+          <ShareIcon /> Share
+        </button>
+        <button className={s.buttons} onClick={handleClipboard}>
+          <UpdateIcon />
+        </button>
+        {/* todo make icons: share, edit, options */}
+      </div>
+
     </div>
   )
 }
