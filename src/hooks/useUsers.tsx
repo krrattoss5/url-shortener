@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { type User, type Urls } from "../Types.d"
+import { type User, type Urls, type Country } from "../Types.d"
 
 const useUsers = () => {
   const [user, setUser] = useState<User | null>(null)
@@ -21,8 +21,8 @@ const useUsers = () => {
   }, [])
 
   const links:Urls[] | null = user?.links || null
-
-  return {links, user}
+  const countries:Country[] | null = user?.countries || null
+  return {links, user, countries}
 }
 
 export default useUsers
