@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: -5rem;
+  padding: 0 0 100px 0;
+}
+
+.containerSection {
+  position: relative;
+  display: flex;
+}
+
+.section1 {
+  position: absolute;
+  width: 45vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section1 h2{
+  color: #56575b;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 14px 0 18px;
+}
+.section1 h1{
+  font-size: 62px;
+  font-weight: 800;
+  line-height: 56px;
+  margin: 0 0 8px;
+}
+
+.section2 {
+  width: 100%;
+}
+
+.section3 {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.getStared {
+  background-color: #2a5bd7;
+  color:#fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 25px;
+  width: 200px;
+  border-radius: 10px;
+  text-align: center;
+  align-self: flex-start;
+  transition: all .3s ease;
+  }
+
+  .getStared:hover {
+    background:#0236b9;
+  }
+
+.img {
+  width: 100%;
+}

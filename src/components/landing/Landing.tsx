@@ -1,5 +1,5 @@
-import Hero from "../hero/Hero"
-import StartedFree from "../startedFree/StartedFree"
+import Hero from "./hero/Hero"
+import StartedFree from "./startedFree/StartedFree"
 
 const Landing = () => {
   return (
