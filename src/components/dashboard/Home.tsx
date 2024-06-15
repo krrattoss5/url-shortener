@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import s from './Dashboard.module.css'
 
 const Home = () => {
@@ -26,7 +27,9 @@ const Home = () => {
 
           <p>Get a custom domain to create links that represent you. Add your own short domain or choose a complimentary one when you upgrade.</p>
 
-          <button>new short</button>
+          <Link to='/dashboard/links/create'>
+            <button>new short</button>
+          </Link>
         </div>
 
       </div>

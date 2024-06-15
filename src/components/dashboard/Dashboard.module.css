@@ -108,3 +108,19 @@
   width: 60%;
   height: auto;
 }
+
+.containerTags {
+  width: 30%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dataAnalytics {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

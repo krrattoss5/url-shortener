@@ -4,7 +4,6 @@ const Settings = () => {
 
   return (
     <div className={s.containerSection}>
-      
     </div>
   )
 }
