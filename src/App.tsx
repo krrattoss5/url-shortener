@@ -2,14 +2,15 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import './App.css'
 // import CreateShortURL from './components/createShortURL/CreateShortURL'
-import Register from './components/register/Register.tsx';
-import Login from './components/login/Login.tsx';
-import NavBar from './components/navBar/NavBar.tsx';
+import Register from './components/landing/register/Register.tsx';
+import Login from './components/landing/login/Login.tsx';
+import NavBar from './components/landing/navBar/NavBar.tsx';
 import Landing from './components/landing/Landing.tsx';
-import Footer from './components/footer/Footer.tsx';
+import Footer from './components/landing/footer/Footer.tsx';
 const ProtectedRoute = lazy(() => import('./components/verifyAuth/ProtectedRoute.tsx'))
 const PublicRoute = lazy(() => import('./components/verifyAuth/PublicRoute.tsx'))
 import Dashboard from './components/dashboard/Dashboard.tsx';
+import Loading from './components/Loading.tsx';
 
 function App() {
   const {pathname} = useLocation()
@@ -24,7 +25,7 @@ function App() {
   return (
     <div>
       {showBar && <NavBar />}
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <Routes>
           <Route path='/' element={<PublicRoute element={<Landing />} />} />
           <Route path='/crear-usuario' element={<PublicRoute element={<Register />} />} />
