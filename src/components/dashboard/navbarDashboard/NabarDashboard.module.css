@@ -94,3 +94,7 @@
 .option:hover {
   background: #f4f6fa;
 }
+
+* {
+  text-decoration: none;
+}
