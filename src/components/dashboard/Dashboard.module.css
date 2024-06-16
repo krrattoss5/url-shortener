@@ -8,7 +8,6 @@
 
 .title {
   color: #273144;
-  font-family: bold;
   width: 100%;
   font-size: 32px;
 }
@@ -87,7 +86,7 @@
   font-weight: 400;
 }
 
-.sectionBox button {
+.sectionBox button, .buttons{
   background: #2a5bd7;
   color: #fff;
   font-size: 16px;
@@ -98,9 +97,10 @@
   padding: 12px 15px;
   transition: all .3s ease;
   align-self: flex-start;
+  cursor: pointer;
 }
 
-.sectionBox button:hover {
+.sectionBox button:hover, .buttons:hover {
   background: #0c3ebb;
 }
 
@@ -123,4 +123,21 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.forms {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inputs {
+  width: 100%;
+  border: solid 1px #e8ebf2;
+  font-size: 16px;
+  padding: 10px 12px;
+  border-radius: 3px;
+  margin: 10px 0;
+  outline: #333a49;
 }
