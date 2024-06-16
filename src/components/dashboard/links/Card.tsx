@@ -21,7 +21,9 @@ const Card = ({link}: Props) => {
         </div>
 
         <div>
-          <h2 className={s.cardTitle}>{link.name?.length < 1 ? 'untitled' : link.name}</h2>
+          <Link to={`/dashboard/links/single/${link.id}`}>
+            <h2 className={s.cardTitle}>{link.name?.length < 1 ? 'untitled' : link.name}</h2>
+          </Link>
           <a className={s.shorted} target="blanc" href={`http://localhost:3001/${link.shortUrl}`}>{`http://localhost:3001/${link.shortUrl}`}</a>
           <a className={s.url} target="blanc" href={link.url}>{link.url}...</a>
 
@@ -42,9 +44,11 @@ const Card = ({link}: Props) => {
         <button className={s.buttons} onClick={handleClipboard}>
           <ShareIcon /> Share
         </button>
-        <button className={s.buttons} onClick={handleClipboard}>
-          <UpdateIcon />
-        </button>
+        <Link to={`/dashboard/links/update/${link.id}`}>
+          <button className={s.buttons} onClick={handleClipboard}>
+            <UpdateIcon />
+          </button>
+        </Link>
         {/* todo make icons: share, edit, options */}
       </div>
 
