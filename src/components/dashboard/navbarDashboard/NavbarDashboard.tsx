@@ -4,6 +4,7 @@ import { DropDownIcon } from '../../icons'
 import AvatarMain from './AvatarMain'
 import s from './NabarDashboard.module.css'
 import { getOut } from '../../../constants'
+import { Link } from 'react-router-dom'
 
 interface Props {
   user: User | null
@@ -26,15 +27,18 @@ const NavbarDashboard = ({user}: Props) => {
       </button>
 
       <div className={`${s.userModal} ${isModalVisible ? s.visible : ''}`}>
-        <div className={s.header}>
 
-          <AvatarMain user={user} />
-          <div className={s.data}>
-            <span>{user?.name}</span>
-            <span>{user?.email}</span>
+        <Link to='/dashboard/settings'>
+          <div className={s.header}>
+
+            <AvatarMain user={user} />
+            <div className={s.data}>
+              <span>{user?.name}</span>
+              <span>{user?.email}</span>
+            </div>
+
           </div>
-
-        </div>
+        </Link>
 
         <span onClick={getOut} className={s.option}>Log out</span>
 
