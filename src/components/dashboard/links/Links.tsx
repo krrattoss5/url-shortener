@@ -7,9 +7,14 @@ interface Props {
 }
 
 const Links = ({links}: Props) => {
+  if(links && links?.length < 1){
+    links = null
+  }
   return (
     <div className={s.containerSection} >
-      <h1 className={s.title}>Bitly Clone Links</h1>
+      {links
+        ? <h1 className={s.title}>Bitly Clone Links</h1>
+        : <img src="/links-list-empty.png" alt="links-list-empty" />}
       {links && <Cards links={links} />}
     </div>
   )
