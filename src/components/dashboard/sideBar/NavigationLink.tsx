@@ -11,7 +11,16 @@ interface Props {
 
 const NavigationLink = ({ to, icon, label, isToggle }: Props) => {
   return (
-    <NavLink to={to} className={({ isActive }) => isActive ? s.noToggleActive : s.noToggle}>
+    <NavLink to={to} className={({ isActive }) => {
+      if(isToggle) return isActive
+        ? `${s.noToggleActive} ${s.selected}`
+        : `${s.noToggle} ${s.selected}`
+
+      if(!isToggle) return isActive
+        ? s.noToggleActive
+        : s.noToggle
+
+    }}>
       <span>|</span>
       {icon}
       {!isToggle && <h4>{label}</h4>}
