@@ -1,79 +1,148 @@
-import { FC, useState } from "react"
-import styles from '../login/Login.module.css'
-import { Link } from "react-router-dom"
+import { FC, useState } from "react";
+import styles from "../login/Login.module.css";
+import { Link } from "react-router-dom";
+import InputField from "./InputField";
 
 const Register: FC = () => {
   const [user, setUser] = useState({
-      email:"",
-      password:"",
-      username:"",
-      name:"Jhon",
-      lastname:"Doe"
-  })
+    email: "",
+    password: "",
+    username: "",
+    name: "Jhon",
+    lastname: "Doe",
+  });
+
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+  });
+
+  const validate = () => {
+    const newErrors = { email: "", password: "" };
+
+    if (!user.email) newErrors.email = "Email is required";
+    else if (!/\S+@\S+\.\S+/.test(user.email))
+      newErrors.email = "Email address is invalid";
+
+    if (!user.password) newErrors.password = "Password is required";
+    else if (
+      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*.])[A-Za-z\d!@.#$%^&*.]{8,}$/.test(
+        user.password
+      )
+    ) {
+      newErrors.password =
+        "Password must be at least 8 characters long, contain at least one lowercase letter, one uppercase letter, one number, and one special character.";
+    }
+
+    setErrors(newErrors);
+    return !newErrors.email && !newErrors.password;
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault()
-
+    e.preventDefault();
     setUser({
       ...user,
-      [e.target.name]:e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const response = await fetch('https://api-shortener.onrender.com/create-user',{
-      method: "POST",
-      headers: {
-        "Content-Type":"application/json"
-      },
-      body: JSON.stringify(user)
-    })
+    if (validate()) {
+      try {
+        const response = await fetch(
+          "https://api-shortener.onrender.com/create-user",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+          }
+        );
 
-    const data = await response.json()
+        const data = await response.json();
 
-    console.log(data)
-    window.location.href = '/iniciar-sesion'
-  }
+        console.log(data);
+        data.message !== 'El usuario ya existe!' ? window.location.href = "/iniciar-sesion" : null
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    return;
+  };
 
   return (
     <main className={styles.container}>
-
-      <Link to='/'>
+      <Link to="/">
         <img src="/bitly_logo.svg" alt="logo-bitlyclone" />
       </Link>
 
       <div className={styles.containerForm}>
         <form className={styles.form} onSubmit={handleSubmit}>
           <h1>Create your account</h1>
-          <p>Already have an account? <Link to='/iniciar-sesion'>Log in</Link></p>
-          <label>Username</label>
-          {/* <input name="name" value={user.name} type="text" placeholder="Nombre" onChange={handleChange} />
-          <input name="lastname" value={user.lastname} type="text" placeholder="Apellido" onChange={handleChange}  /> */}
-          <input name="username" value={user.username} type="text" placeholder="Nik" onChange={handleChange}  />
-          <label>Email</label>
-          <input name="email" value={user.email} type="email" placeholder="Correo" onChange={handleChange}  />
-          <label>Password</label>
-          <input name="password" value={user.password} type="password" placeholder="Confirmar Contraseña" onChange={handleChange}  />
+          <p className={styles.paragraph}>
+            Already have an account? <Link to="/iniciar-sesion">Log in</Link>
+          </p>
+
+          {/* <InputField
+            label="Username"
+            name="name"
+            value={user.name}
+            type="text"
+            placeholder="Nik"
+            onChange={handleChange}
+          /> */}
+
+          <InputField
+            label="Email"
+            name="email"
+            value={user.email}
+            type="email"
+            placeholder="E-mail"
+            onChange={handleChange}
+          />
+          {errors.email && <h6>{errors.email}</h6>}
+
+          <InputField
+            label="Password"
+            name="password"
+            value={user.password}
+            type="password"
+            placeholder="Password"
+            onChange={handleChange}
+          />
+          {errors.password && <h6>{errors.password}</h6>}
 
           <button type="submit">crear</button>
 
           <span>
-            By logging in with an account, you agree to Bitly's <Link className={styles.slink} to='#'>Terms of Service</Link>, <Link className={styles.slink} to='#'>Privacy Policy</Link> and <Link className={styles.slink} to='#'>Acceptable Use Policy</Link>.
+            By logging in with an account, you agree to Bitly's{" "}
+            <Link className={styles.slink} to="#">
+              Terms of Service
+            </Link>
+            ,{" "}
+            <Link className={styles.slink} to="#">
+              Privacy Policy
+            </Link>{" "}
+            and{" "}
+            <Link className={styles.slink} to="#">
+              Acceptable Use Policy
+            </Link>
           </span>
-
         </form>
       </div>
 
       <div className={styles.section}>
         <img src="/connections_platform_product.png" alt="bitly-analytics" />
-        <h4>Power your links, QR Codes, and Link-in-bio with Bitly's Connections Platform.
+        <h4>
+          Power your links, QR Codes, and Link-in-bio with Bitly's Connections
+          Platform.
         </h4>
       </div>
-
     </main>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

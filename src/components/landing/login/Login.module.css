@@ -90,6 +90,11 @@
   background: #0c3ebb;
 }
 
+.form h6 {
+  color:red;
+  width:100%;
+}
+
 .container img {
   position: absolute;
   top: 30px;
@@ -120,4 +125,8 @@
   color: #273144;
   font-weight: bold;
   padding-top: 20px;
+}
+
+.errors {
+  color: red;
 }
