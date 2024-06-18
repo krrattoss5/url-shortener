@@ -27,11 +27,8 @@ const DynamicPieChart = ({ data }: Props) => {
         fill="#8884d8"
         label
       >
-        {data.map((entry, index) => (
-          <>
-            {console.log(entry)}
-            <Cell key={`cell-${index}`} fill={dynamicColors[index % dynamicColors.length]} />
-          </>
+        {data.map((_, index) => (
+          <Cell key={`cell-${index}`} fill={dynamicColors[index % dynamicColors.length]} />
         ))}
       </Pie>
       <Tooltip />
