@@ -1,32 +1,48 @@
-.container{
+/* NavBar.module.css */
+
+.container {
   top: 0;
-  z-index: 999;
-  position: fixed !important;
-  background: #fff;
+  background: transparent;
   width: 100%;
   height: 80px;
   margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.8s ease; /* Animación para todos los cambios */
+  opacity: 1; /* Inicia completamente visible */
 }
 
-.container img{
+.container.scrolled {
+  position: fixed !important;
+  z-index: 999;
+  background: #f8f8f8;
+  opacity: 0; /* Inicialmente transparente */
+  transform: translateY(-100%); /* Mover hacia arriba inicialmente */
+}
+
+.container.scrolled.transition {
+  opacity: 1; /* Hacer visible */
+  transform: translateY(0); /* Mover a la posición original */
+}
+
+.container img {
   width: 100px;
   height: 50px;
+  z-index: 9999;
   margin-left: 5rem;
 }
 
-.container div{
-  gap:10px;
+.container div {
+  gap: 10px;
   margin-right: 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.link{
-  color:#031f39;
+.link {
+  color: #031f39;
   background: none;
   border: none;
   font-size: 18px;
@@ -37,15 +53,16 @@
   padding: 0 10px;
   height: 40px;
   font-weight: 600;
-  transition: all .3s ease;
-  }
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
 
-.link:hover{
+.link:hover {
   background-color: #d6d2c9;
   border-radius: 10px;
 }
 
-.link2{
+.link2 {
   font-weight: 600;
   font-size: 18px;
   display: flex;
@@ -54,12 +71,13 @@
   text-decoration: none;
   height: 40px;
   padding: 0 10px;
-  color:#fff;
+  color: #fff;
   border-radius: 10px;
-  background-color: #0058DD;
-  transition: all .3s ease;
+  background-color: #0058dd;
+  transition: all 0.3s ease;
+  z-index: 9999;
 }
 
-.link2:hover{
+.link2:hover {
   background-color: #031f39;
 }
