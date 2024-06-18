@@ -84,6 +84,7 @@
   font-size: 18px;
   padding: 10px 16px;
   transition: all .3s ease;
+  cursor: pointer;
 }
 
 .form button:hover {
@@ -129,4 +130,12 @@
 
 .errors {
   color: red;
+}
+
+button{
+  cursor: pointer;
+}
+
+.Link {
+  color: #0c3ebb;
 }

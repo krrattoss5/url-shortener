@@ -1,14 +1,12 @@
-import { Navigate } from "react-router-dom"
-import { isAuthenticated } from "../../constants"
+import { Navigate } from "react-router-dom";
+import { isAuthenticated } from "../../constants";
 
 interface Props {
-  element: JSX.Element
+  element: JSX.Element;
 }
 
-const PublicRoute = ({element}: Props) => {
-  return isAuthenticated()
-   ? <Navigate to='/dashboard' />
-   : element
-}
+const PublicRoute = ({ element }: Props) => {
+  return isAuthenticated() ? <Navigate to="/dashboard" /> : element;
+};
 
-export default PublicRoute
+export default PublicRoute;

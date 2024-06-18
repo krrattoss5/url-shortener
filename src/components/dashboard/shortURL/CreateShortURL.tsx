@@ -1,43 +1,48 @@
 import { FC, useState } from "react";
-import styles from './index.module.css';
+import styles from "./index.module.css";
 import { ClipBoardIcon, Locker } from "../../icons";
 
 const CreateShortURL: FC = () => {
   const [formData, setFormData] = useState({
     url: "",
     name: "",
-    customShort: ""
+    customShort: "",
   });
   const [shortURL, setShortURL] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prevFormData => ({
+    setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
-    fetch('https://api-shortener.onrender.com', {
-      method: 'POST',
+    fetch("https://api-shortener.onrender.com", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `${token}`
+        "Content-Type": "application/json",
+        Authorization: `${token}`,
       },
-      body: JSON.stringify(formData)
-    }).then(res => res.json()).then(({ shortUrl }) => {
-      console.log(shortURL)
-      setShortURL(shortUrl);
-    });
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then(({ shortUrl }) => {
+        console.log(shortURL);
+        setShortURL(shortUrl);
+      });
 
     // window.location.href = '/dashboard/links'
   };
 
-  const handleClipboard = () => navigator.clipboard.writeText(`https://api-shortener.onrender.com/${shortURL}`);
+  const handleClipboard = () =>
+    navigator.clipboard.writeText(
+      `https://api-shortener.onrender.com/${shortURL}`
+    );
 
   return (
     <div className={styles.main}>
@@ -49,7 +54,7 @@ const CreateShortURL: FC = () => {
           <input
             type="text"
             className={styles.input}
-            placeholder='https://example.com/my-long-url'
+            placeholder="https://example.com/my-long-url"
             name="url"
             value={formData.url}
             onChange={handleChange}
@@ -67,14 +72,24 @@ const CreateShortURL: FC = () => {
 
           <div className={styles.containerInputs}>
             <div>
-              <label className={styles.labelRow}>Domain<Locker /></label>
-              <input type="text" value='https://localhost:3001' className={styles.input} disabled />
+              <label className={styles.labelRow}>
+                Domain
+                <Locker />
+              </label>
+              <input
+                type="text"
+                value="https://localhost:3001"
+                className={styles.input}
+                disabled
+              />
             </div>
 
             <span className={styles.separator}>/</span>
 
             <div>
-              <label className={styles.labelRow}>Custom back-half (optional)</label>
+              <label className={styles.labelRow}>
+                Custom back-half (optional)
+              </label>
               <input
                 type="text"
                 className={styles.input}
@@ -89,10 +104,17 @@ const CreateShortURL: FC = () => {
         </form>
         {shortURL && (
           <>
-            <a href={`https://api-shortener.onrender.com/${shortURL}`} className={styles.url} target="_blank" rel="noopener noreferrer">
+            <a
+              href={`https://api-shortener.onrender.com/${shortURL}`}
+              className={styles.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {`https://api-shortener.onrender.com/${shortURL}`}
             </a>
-            <div onClick={handleClipboard}><ClipBoardIcon /></div>
+            <div onClick={handleClipboard}>
+              <ClipBoardIcon />
+            </div>
           </>
         )}
       </div>

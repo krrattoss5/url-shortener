@@ -18,9 +18,15 @@ const InputField = ({
   return (
     <>
       <label>{label}</label>
-      <input name={name} value={value} placeholder={placeholder} type={type} onChange={onChange} />
+      <input
+        name={name}
+        value={value}
+        placeholder={placeholder}
+        type={type}
+        onChange={onChange}
+      />
     </>
-  )
+  );
 };
 
 export default InputField;

@@ -1,14 +1,20 @@
-import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
-import { type Data } from '../../../Types';
+import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import { type Data } from "../../../Types";
 
 // Define una lista de colores para los segmentos del gráfico
 const COLORS = [
-  '#0088FE', '#00C49F', '#FFBB28', '#FF8042',
-  '#AF19FF', '#FF007A', '#FF0067', '#4CFF00'
+  "#0088FE",
+  "#00C49F",
+  "#FFBB28",
+  "#FF8042",
+  "#AF19FF",
+  "#FF007A",
+  "#FF0067",
+  "#4CFF00",
 ];
 
 interface Props {
-  data: Data[]
+  data: Data[];
 }
 
 const DynamicPieChart = ({ data }: Props) => {
@@ -28,7 +34,10 @@ const DynamicPieChart = ({ data }: Props) => {
         label
       >
         {data.map((_, index) => (
-          <Cell key={`cell-${index}`} fill={dynamicColors[index % dynamicColors.length]} />
+          <Cell
+            key={`cell-${index}`}
+            fill={dynamicColors[index % dynamicColors.length]}
+          />
         ))}
       </Pie>
       <Tooltip />

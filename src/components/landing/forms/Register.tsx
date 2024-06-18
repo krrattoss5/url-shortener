@@ -1,7 +1,8 @@
 import { FC, useState } from "react";
-import styles from "../login/Login.module.css";
+import styles from "./Login.module.css";
 import { Link } from "react-router-dom";
 import InputField from "./InputField";
+import Swal from "sweetalert2";
 
 const Register: FC = () => {
   const [user, setUser] = useState({
@@ -65,7 +66,14 @@ const Register: FC = () => {
         const data = await response.json();
 
         console.log(data);
-        data.message !== 'El usuario ya existe!' ? window.location.href = "/iniciar-sesion" : null
+        data.message !== "El usuario ya existe!"
+          ? (window.location.href = "/iniciar-sesion")
+          : Swal.fire({
+              title: "Error!",
+              text: "This email is already in use!",
+              icon: "error",
+              confirmButtonText: "Accept",
+            });
       } catch (e) {
         console.log(e);
       }
@@ -83,17 +91,11 @@ const Register: FC = () => {
         <form className={styles.form} onSubmit={handleSubmit}>
           <h1>Create your account</h1>
           <p className={styles.paragraph}>
-            Already have an account? <Link to="/iniciar-sesion">Log in</Link>
+            Already have an account?{" "}
+            <Link className={styles.Link} to="/iniciar-sesion">
+              Log in
+            </Link>
           </p>
-
-          {/* <InputField
-            label="Username"
-            name="name"
-            value={user.name}
-            type="text"
-            placeholder="Nik"
-            onChange={handleChange}
-          /> */}
 
           <InputField
             label="Email"

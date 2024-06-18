@@ -1,9 +1,8 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import "./App.css";
-// import CreateShortURL from './components/createShortURL/CreateShortURL'
-import Register from "./components/landing/register/Register.tsx";
-import Login from "./components/landing/login/Login.tsx";
+import Register from "./components/landing/forms/Register.tsx";
+import Login from "./components/landing/forms/Login.tsx";
 import NavBar from "./components/landing/navBar/NavBar.tsx";
 import Landing from "./components/landing/Landing.tsx";
 import Footer from "./components/landing/footer/Footer.tsx";

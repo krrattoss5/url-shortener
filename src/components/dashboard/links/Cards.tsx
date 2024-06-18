@@ -1,16 +1,17 @@
-import { type Urls } from "../../../Types"
-import Card from "./Card"
+import { type Urls } from "../../../Types";
+import Card from "./Card";
 
 interface Props {
-  links: Urls[] | null
+  links: Urls[] | null;
 }
 
-const Cards = ({links}: Props) => {
+const Cards = ({ links }: Props) => {
   return (
     <>
-      {links && links.map((link) => <Card link={link} key={link.id} />).reverse()}
+      {links &&
+        links.map((link) => <Card link={link} key={link.id} />).reverse()}
     </>
-  )
-}
+  );
+};
 
-export default Cards
+export default Cards;

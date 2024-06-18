@@ -1,5 +1,5 @@
-import Hero from "./hero/Hero"
-import StartedFree from "./startedFree/StartedFree"
+import Hero from "./hero/Hero";
+import StartedFree from "./startedFree/StartedFree";
 
 const Landing = () => {
   return (
@@ -7,7 +7,7 @@ const Landing = () => {
       <Hero />
       <StartedFree />
     </>
-  )
-}
+  );
+};
 
-export default Landing
+export default Landing;

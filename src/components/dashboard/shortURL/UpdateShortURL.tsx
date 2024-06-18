@@ -1,8 +1,8 @@
-import styles from './index.module.css';
+import styles from "./index.module.css";
 import { Locker } from "../../icons";
 import { Urls } from "../../../Types";
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 interface Props {
   links: Urls[] | null;
@@ -13,9 +13,9 @@ const UpdateShortURL = ({ links }: Props) => {
   const filteredLink = links?.find((l) => l.id.toString() === id);
 
   const [formData, setFormData] = useState({
-    url: filteredLink?.url || '',
-    name: filteredLink?.name || '',
-    customShort: filteredLink?.shortUrl || ''
+    url: filteredLink?.url || "",
+    name: filteredLink?.name || "",
+    customShort: filteredLink?.shortUrl || "",
   });
 
   useEffect(() => {
@@ -23,39 +23,39 @@ const UpdateShortURL = ({ links }: Props) => {
       setFormData({
         url: filteredLink.url,
         name: filteredLink.name,
-        customShort: filteredLink.shortUrl
+        customShort: filteredLink.shortUrl,
       });
     }
   }, [filteredLink]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prevFormData => ({
+    setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     try {
       const response = await fetch(`https://api-shortener.onrender.com/${id}`, {
-        method: 'PUT',
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `${token}`
+          "Content-Type": "application/json",
+          Authorization: `${token}`,
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
       const data = await response.json();
       if (response.ok) {
-        window.location.reload()
+        window.location.reload();
       } else {
         console.error(data.message);
       }
     } catch (error) {
-      console.error('Error updating link:', error);
+      console.error("Error updating link:", error);
     }
   };
 
@@ -69,7 +69,7 @@ const UpdateShortURL = ({ links }: Props) => {
           <input
             type="text"
             className={styles.input}
-            placeholder='https://example.com/my-long-url'
+            placeholder="https://example.com/my-long-url"
             name="url"
             value={formData.url}
             onChange={handleChange}
@@ -87,8 +87,16 @@ const UpdateShortURL = ({ links }: Props) => {
 
           <div className={styles.containerInputs}>
             <div>
-              <label className={styles.labelRow}>Domain<Locker /></label>
-              <input type="text" value='https://localhost:3001' className={styles.input} disabled />
+              <label className={styles.labelRow}>
+                Domain
+                <Locker />
+              </label>
+              <input
+                type="text"
+                value="https://localhost:3001"
+                className={styles.input}
+                disabled
+              />
             </div>
 
             <span className={styles.separator}>/</span>
@@ -107,7 +115,6 @@ const UpdateShortURL = ({ links }: Props) => {
 
           <button className={styles.button}>Update</button>
         </form>
-
       </div>
     </div>
   );
