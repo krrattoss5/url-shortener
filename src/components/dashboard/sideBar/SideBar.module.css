@@ -1,7 +1,27 @@
 .container {
   height: 100vh;
-  padding-top: 0px;
+  padding: 0px 0px 0px 10px;
   border-right: solid 1px #d7d7d7;
+  width: 19%;
+  transition: all .3s ease;
+}
+
+.container.selected {
+  width: 5%;
+}
+
+.ContainerToggle {
+  position: relative;
+}
+
+.ContainerToggle.selected {
+  padding: 0 10px;
+}
+
+.ContainerToggle img {
+  align-self: flex-start;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .noToggleActive {
@@ -12,11 +32,15 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 12px;
   width: auto;
+  gap: 12px;
   margin: 10px;
   padding: 10px 0;
   text-decoration: none;
+}
+
+.noToggleActive h4 {
+  color: #0c3ebb;
 }
 
 .noToggleActive svg path {
@@ -37,11 +61,12 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 12px;
   width: auto;
+  gap: 12px;
   margin: 10px;
   padding: 10px 0;
   text-decoration: none;
+  transition: all .3s ease;
 }
 
 .noToggle span {
@@ -50,36 +75,39 @@
 
 .noToggle:hover {
   background: #f4f6fa;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
-.ContainerToggle {
-  padding-left: 10px;
-}
-
-.ContainerToggle img {
-  align-self: flex-start;
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-bottom: 15px;
+.noToggleActive.selected,
+.noToggle.selected {
+  gap: 4px;
+  width: 80%;
+  margin: 20px 0;
 }
 
 .buttonToggleOf,
 .buttonToggleOn {
-  position: fixed;
-  left: 4%;
-  top: 7%;
+  position: absolute;
+  right: -20px;
+  top: 50px;
   z-index: 9999;
-  padding: 7px 9px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 20px;
   background: #fff;
   border: solid 1px #d7d7d7;
   box-shadow: 0 0 3px #d7d7d7;
+  font-size: 18px;
+  padding: 0;
+  text-align: center;
 }
 
-.buttonToggleOn {
+/* .buttonToggleOn {
   left: 14%;
-}
+} */
 
 .separator {
   width: 90%;
@@ -88,8 +116,10 @@
   background: #d7d7d7;
 }
 
-.buttonOnToggle,
-.buttonNoToggle {
+.buttonOnToggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #022d94;
   color: #fff;
   border: none;
@@ -102,15 +132,17 @@
   box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.24);
 }
 
-.buttonOnToggle {
-  background: #022d94;
+.buttonOnToggle.selected {
   color: #fff;
   padding: 8px 8px;
   width: 80%;
   font-weight: bold;
 }
 
-.buttonOnToggle:hover,
-.buttonNoToggle:hover {
+.buttonOnToggle.selected svg {
+  fill:#fff
+}
+
+.buttonOnToggle:hover {
   background: #0c3ebb;
 }

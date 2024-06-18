@@ -17,8 +17,8 @@ const SideBar = () => {
   const handleIsToggle = () => setIsToggle(!isToggle);
 
   return (
-    <div style={{ width: isToggle ? '5%' : '19%' }} className={s.container}>
-      <section className={s.ContainerToggle}>
+    <div className={`${s.container} ${isToggle ? s.selected : ''}`}>
+      <section className={`${s.ContainerToggle} ${isToggle ? s.selected : ''}`}>
         <ToggleButton isToggle={isToggle} handleIsToggle={handleIsToggle} />
 
         <Link to='/'>
@@ -26,7 +26,7 @@ const SideBar = () => {
         </Link>
 
         <Link to='/dashboard/links/create'>
-          <button className={isToggle ? s.buttonOnToggle : s.buttonNoToggle}>
+          <button className={`${s.buttonOnToggle} ${isToggle ? s.selected : ''}`}>
             {isToggle ? <PlusIcon /> : 'Create new'}
           </button>
         </Link>
