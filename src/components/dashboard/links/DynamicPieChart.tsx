@@ -29,7 +29,7 @@ const DynamicPieChart = ({ data }: Props) => {
       >
         {data.map((entry, index) => (
           <>
-            {entry}
+            {console.log(entry)}
             <Cell key={`cell-${index}`} fill={dynamicColors[index % dynamicColors.length]} />
           </>
         ))}
