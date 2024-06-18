@@ -28,7 +28,9 @@ const NavbarDashboard = ({ user }: Props) => {
           <div className={s.header}>
             <AvatarMain user={user} />
             <div className={s.data}>
-              <span>{user?.name}{' '}{user?.lastname}</span>
+              <span>
+                {user?.name} {user?.lastname}
+              </span>
               <span>{user?.email}</span>
             </div>
           </div>
