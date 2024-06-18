@@ -22,7 +22,7 @@ const CreateShortURL: FC = () => {
     e.preventDefault();
     const token = localStorage.getItem('token');
 
-    fetch('http://localhost:3001', {
+    fetch('https://api-shortener.onrender.com', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ const CreateShortURL: FC = () => {
     window.location.href = '/dashboard/links'
   };
 
-  const handleClipboard = () => navigator.clipboard.writeText(`http://localhost:3001/${shortURL}`);
+  const handleClipboard = () => navigator.clipboard.writeText(`https://api-shortener.onrender.com/${shortURL}`);
 
   return (
     <div className={styles.main}>
@@ -89,8 +89,8 @@ const CreateShortURL: FC = () => {
         </form>
         {shortURL && (
           <>
-            <a href={`http://localhost:3001/${shortURL}`} className={styles.url} target="_blank" rel="noopener noreferrer">
-              {`http://localhost:3001/${shortURL}`}
+            <a href={`https://api-shortener.onrender.com/${shortURL}`} className={styles.url} target="_blank" rel="noopener noreferrer">
+              {`https://api-shortener.onrender.com/${shortURL}`}
             </a>
             <div onClick={handleClipboard}><ClipBoardIcon /></div>
           </>

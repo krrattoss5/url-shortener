@@ -23,7 +23,7 @@ const Register: FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const response = await fetch('http://localhost:3001/create-user',{
+    const response = await fetch('https://api-shortener.onrender.com/create-user',{
       method: "POST",
       headers: {
         "Content-Type":"application/json"

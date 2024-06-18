@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Card = ({link}: Props) => {
-  const handleClipboard = () => navigator.clipboard.writeText(`http://localhost:3001/${link.shortUrl}`);
+  const handleClipboard = () => navigator.clipboard.writeText(`https://api-shortener.onrender.com/${link.shortUrl}`);
 
   return (
     <div className={s.cardContainer}>
@@ -24,7 +24,7 @@ const Card = ({link}: Props) => {
           <Link to={`/dashboard/links/single/${link.id}`}>
             <h2 className={s.cardTitle}>{link.name?.length < 1 ? 'untitled' : link.name}</h2>
           </Link>
-          <a className={s.shorted} target="blanc" href={`http://localhost:3001/${link.shortUrl}`}>{`http://localhost:3001/${link.shortUrl}`}</a>
+          <a className={s.shorted} target="blanc" href={`https://api-shortener.onrender.com/${link.shortUrl}`}>{`https://api-shortener.onrender.com/${link.shortUrl}`}</a>
           <a className={s.url} target="blanc" href={link.url}>{link.url}...</a>
 
           <div className={s.tagsContainer}>

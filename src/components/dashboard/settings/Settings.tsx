@@ -33,7 +33,7 @@ const Settings = ({ user }: Props) => {
 
   const handleSubmitPreferences = (e: FormEvent) => {
     e.preventDefault();
-    fetch('http://localhost:3001/updatePreferences', {
+    fetch('https://api-shortener.onrender.com/updatePreferences', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const Settings = ({ user }: Props) => {
 
   const handleSubmitSecurity = (e: FormEvent) => {
     e.preventDefault();
-    fetch('http://localhost:3001/updatePassword', {
+    fetch('https://api-shortener.onrender.com/updatePassword', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -68,9 +68,10 @@ const Settings = ({ user }: Props) => {
   };
 
   const handleDeleteAccount = () => {
-    fetch('http://localhost:3001/deleteAccount', {
+    fetch('https://api-shortener.onrender.com/deleteAccount', {
       method: 'DELETE',
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': `${token}`
       }
     }).then(res => res.json())

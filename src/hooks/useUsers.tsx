@@ -7,7 +7,7 @@ const useUsers = () => {
   const token = localStorage.getItem('token')
 
   useEffect(() => {
-    fetch('http://localhost:3001/me',{
+    fetch('https://api-shortener.onrender.com/me',{
       method:'GET',
       headers:{
         'Content-Type':'application/json',

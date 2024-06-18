@@ -8,7 +8,7 @@ interface Props {
 const Cards = ({links}: Props) => {
   return (
     <>
-      {links && links.map((link) => <Card link={link} />).reverse()}
+      {links && links.map((link) => <Card link={link} key={link.id} />).reverse()}
     </>
   )
 }
