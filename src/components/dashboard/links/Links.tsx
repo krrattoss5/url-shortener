@@ -7,6 +7,7 @@ interface Props {
 }
 
 const Links = ({links}: Props) => {
+  console.log(links)
   if(links && links?.length < 1){
     links = null
   }

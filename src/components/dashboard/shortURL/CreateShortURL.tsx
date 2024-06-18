@@ -34,7 +34,7 @@ const CreateShortURL: FC = () => {
       setShortURL(shortUrl);
     });
 
-    window.location.href = '/dashboard/links'
+    // window.location.href = '/dashboard/links'
   };
 
   const handleClipboard = () => navigator.clipboard.writeText(`https://api-shortener.onrender.com/${shortURL}`);
