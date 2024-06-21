@@ -6,7 +6,15 @@ interface Props {
 }
 
 const AvatarMain = ({ user }: Props) => {
-  return <span className={s.avatar}> {user && user.name.slice(0, 1)}</span>;
+  const data = localStorage.getItem("data-user") as string;
+  const parsed: User | null = JSON.parse(data);
+
+  return (
+    <span className={s.avatar}>
+      {" "}
+      {user ? user.name.slice(0, 1) : parsed?.name.slice(0, 1)}
+    </span>
+  );
 };
 
 export default AvatarMain;

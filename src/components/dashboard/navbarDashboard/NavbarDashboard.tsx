@@ -15,11 +15,15 @@ const NavbarDashboard = ({ user }: Props) => {
 
   const handleFocus = () => setIsModalvisible(!isModalVisible);
 
+  const data = localStorage.getItem("data-user") as string;
+  const parsed: User | null = JSON.parse(data);
+
+
   return (
     <header className={s.container}>
       <button className={s.mainMenu} onClick={handleFocus}>
         <AvatarMain user={user} />
-        <span>{user?.name}</span>
+        <span>{user ? user?.name : parsed?.name}</span>
         <DropDownIcon />
       </button>
 
@@ -29,9 +33,9 @@ const NavbarDashboard = ({ user }: Props) => {
             <AvatarMain user={user} />
             <div className={s.data}>
               <span>
-                {user?.name} {user?.lastname}
+                {user ? user?.name : parsed?.name} {user ? user?.lastname : parsed?.lastname}
               </span>
-              <span>{user?.email}</span>
+              <span>{user ? user?.email : parsed?.name}</span>
             </div>
           </div>
         </Link>
