@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import s from "./Hero.module.css";
+import Sponsors from "./Sponsors";
+
 
 const Hero = () => {
   return (
@@ -24,13 +26,8 @@ const Hero = () => {
           <img src="/11.15_hero_desktop@2x.png" alt="" className={s.img} />
         </div>
       </section>
-      <div className={s.section3}>
-        <img src="/curology-2.svg" alt="" />
-        <img src="/novasol.svg" alt="" />
-        <img src="/rad-bikes-2.svg" alt="" />
-        <img src="/marriott.svg" alt="" />
-        <img src="/new-york-times.svg" alt="" />
-      </div>
+
+      <Sponsors />
     </main>
   );
 };
