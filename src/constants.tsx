@@ -2,6 +2,7 @@ export const isAuthenticated = () => !!localStorage.getItem("token");
 
 export const getOut = () => {
   localStorage.removeItem("token");
+  localStorage.removeItem("data-user");
   window.location.href = "/";
 };
 
