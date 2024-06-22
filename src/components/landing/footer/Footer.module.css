@@ -33,3 +33,12 @@
   background: #abb3ba;
   border-radius: 8px;
 }
+
+@media (width <= 860px){
+  .container{
+    flex-direction: column;
+  }
+  .container span{
+    text-align: center;
+  }
+}
