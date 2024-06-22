@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import s from "./NavBar.module.css";
 import { getOut } from "../../../constants";
 import { useState, useEffect } from "react";
+// import MenuMobile from "../../../MenuMobile";
 
 const NavBar = () => {
   const isLogin = !!localStorage.getItem("token");
@@ -46,6 +47,7 @@ const NavBar = () => {
             Get Out
           </button>
         )}
+        {/* <MenuMobile /> */}
         {!isLogin ? (
           <Link className={s.link2} to="/crear-usuario">
             Sign up Free
