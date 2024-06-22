@@ -1,8 +1,20 @@
 .container{
-  background: #f5f6f7;
-  width: auto;
+  width: 100%;
   height: auto;
-  padding: 30px 50px;
+  display: flex;
+  padding: 30px 0;
+  align-items: center;
+  background: #f5f6f7;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.containerAll{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .container h5 {
@@ -24,7 +36,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
+  margin: auto;
 }
 
 .buttonContainer{
@@ -34,27 +47,29 @@
 }
 
 .buttonContainer span {
-  background: #fff;
-  border:solid 3px #e8e9eb;
-  border-bottom: none;
-  margin-bottom: -3px;
-  color: #36383b;
-  padding: 20px 28px;
-  border-radius: 12px 12px 0 0;
-  font-size: 20px;
   z-index: 9;
   display: flex;
+  font-size: 20px;
+  color: #36383b;
+  background: #fff;
+  padding: 20px 28px;
+  margin-bottom: -3px;
   align-items: center;
+  border-bottom: none;
   justify-content: center;
+  border:solid 3px #e8e9eb;
+  border-radius: 12px 12px 0 0;
 }
 
 .board {
-  display: flex;
-  flex-direction: column;
   width: 80%;
+  display: flex;
   background: #fff;
-  padding: 10px 40px 50px 40px;
   border-radius: 16px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px 40px 50px 40px;
   border: solid 3px #e8e9eb;
 }
 
@@ -80,6 +95,7 @@
   color: #031f39;
   font-weight: 600;
   margin-top: 8px;
+  width: 100%;
 }
 
 .board button {
@@ -103,7 +119,7 @@
 }
 
 .slogan {
-  width: 100;
+  width: 100%;
   padding: 80px 0 80px;
   display: flex;
   align-items: center;
@@ -132,4 +148,31 @@
 
 .slogan button:hover {
   background:#244eb8
+}
+
+@media (width <= 860px){
+  .container h5, .container h3{
+    width: 80%;
+  }
+  .board button{
+    align-self: center;
+    width: 100%;
+  }
+  .board input{
+    width:90%
+  }
+}
+
+@media (width <= 480px) {
+  .container{
+    padding: 50px 0;
+    width: 100%;
+  }
+  .container h5 {
+    font-size: 18px;
+    line-height: 50px;
+  }
+  .dashboard {
+    width: 100%;
+  }
 }
