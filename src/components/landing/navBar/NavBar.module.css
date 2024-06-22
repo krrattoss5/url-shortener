@@ -81,3 +81,10 @@
 .link2:hover {
   background-color: #031f39;
 }
+
+@media (width <= 860px){
+  .container img, .container div{
+    margin: 0 10px;
+  }
+}
+
