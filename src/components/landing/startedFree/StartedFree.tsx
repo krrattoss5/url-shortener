@@ -17,7 +17,7 @@ const StartedFree = () => {
   };
 
   return (
-    <>
+    <div className={s.containerAll}>
       <section className={s.container}>
         <h5>Great connections start with a click</h5>
         <h3>Sign up for a free account and put Bitly to work</h3>
@@ -49,7 +49,7 @@ const StartedFree = () => {
         <br />
         <button>Get Stared</button>
       </div>
-    </>
+    </div>
   );
 };
 
