@@ -1,10 +1,10 @@
 .container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   margin-top: -5rem;
+  align-items: center;
   padding: 0 0 100px 0;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .containerSection {
@@ -20,6 +20,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 5rem;
 }
 
 .section1 h2{
@@ -61,10 +62,92 @@
   transition: all .3s ease;
   }
 
-  .getStared:hover {
-    background:#0236b9;
-  }
+.getStared:hover {
+  background:#0236b9;
+}
 
 .img {
   width: 100%;
+}
+
+@media (width <= 1024px){
+  .section1 {
+    margin: 50px 0;
+  }
+  .section1 h1{
+    font-size: 44px;
+  }
+  .section3{
+    margin-top: 50px;
+  }
+}
+
+@media (width <= 834px){
+  .container{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: static;
+  }
+  .containerSection{
+    width: 100%;
+    position:static;
+    margin: 0;
+  }
+  .section1 {
+    width: 100%;
+    margin: 0;
+    padding: 15px 50px;
+    position: static;
+    align-items: flex-start;
+  }
+  .section1 h1{
+    width: 70%;
+    line-height: 44px;
+    font-size: 44px;
+  }
+  .section1 h2{
+    width: 100%;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .getStared {
+    width: 90%;
+
+  }
+  .section2{
+    display: none;
+  }
+  .section3{
+    width: 90%;
+  }
+}
+
+@media (width <= 780px){
+  .section1 h1 {
+    width: 100%;
+    font-size: 50px;
+  }
+}
+
+@media (width <= 480px){
+  .getStared{
+    width: 100%;
+    font-size: 24px;
+  }
+  .containerSection {
+    width: 90%;
+  }
+  .section1 {
+    width: 90%;
+    align-items: center;
+  }
+
+  .section1 h1{
+    line-height: 50px;
+  }
+  /* .section3{
+    padding-left: 10%;
+  } */
+
 }
