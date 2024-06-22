@@ -1,11 +1,11 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Suspense, lazy } from "react";
-import "./App.css";
 import Register from "./components/landing/forms/Register.tsx";
 import Login from "./components/landing/forms/Login.tsx";
 import NavBar from "./components/landing/navBar/NavBar.tsx";
 import Landing from "./components/landing/Landing.tsx";
 import Footer from "./components/landing/footer/Footer.tsx";
+
 const ProtectedRoute = lazy(
   () => import("./components/verifyAuth/ProtectedRoute.tsx")
 );
@@ -14,6 +14,7 @@ const PublicRoute = lazy(
 );
 import Dashboard from "./components/dashboard/Dashboard.tsx";
 import Loading from "./components/Loading.tsx";
+import s from './App.module.css'
 
 function App() {
   const { pathname } = useLocation();
@@ -21,9 +22,9 @@ function App() {
   const showFooter = !pathname.startsWith("/dashboard");
 
   return (
-    <div>
+    <div className={s.container}>
       {showBar && <NavBar />}
-      <Suspense fallback={<Loading />}>
+       <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/" element={<PublicRoute element={<Landing />} />} />
           <Route
