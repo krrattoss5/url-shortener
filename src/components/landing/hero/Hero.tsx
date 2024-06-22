@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <main className={s.container}>
       <section className={s.containerSection}>
-        <div className={s.section1} style={{ padding: "0 5rem" }}>
+        <div className={s.section1}>
           <h1 style={{ color: "#252628" }}>
             Build stronger digital{" "}
             <span style={{ color: "#ff6116" }}>conections</span>
