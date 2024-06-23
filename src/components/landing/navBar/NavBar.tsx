@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import s from "./NavBar.module.css";
-import { getOut } from "../../../constants";
 import { useState, useEffect } from "react";
-// import MenuMobile from "../../../MenuMobile";
+import MenuMobile from "./MenuMobile";
 
 const NavBar = () => {
-  const isLogin = !!localStorage.getItem("token");
+
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -38,21 +37,14 @@ const NavBar = () => {
         <img src="/bitly_logo.svg" alt="bitly clone" />
       </Link>
       <div>
-        {!isLogin ? (
-          <Link className={s.link} to="/iniciar-sesion">
-            Log in
-          </Link>
-        ) : (
-          <button className={s.link} onClick={getOut}>
-            Get Out
-          </button>
-        )}
-        {/* <MenuMobile /> */}
-        {!isLogin ? (
-          <Link className={s.link2} to="/crear-usuario">
-            Sign up Free
-          </Link>
-        ) : null}
+        <Link className={s.link} to="/iniciar-sesion">
+          Log in
+        </Link>
+
+        <Link className={s.link2} to="/crear-usuario">
+          Sign up Free
+        </Link>
+        <MenuMobile />
       </div>
     </nav>
   );
