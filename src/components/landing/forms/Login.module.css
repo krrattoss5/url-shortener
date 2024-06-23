@@ -1,8 +1,12 @@
+body{
+  overflow-x: hidden;
+}
+
 .container {
   background-color: #fff;
   position: relative;
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 }
 
@@ -138,4 +142,34 @@ button{
 
 .Link {
   color: #0c3ebb;
+}
+
+@media (width <= 860px){
+  .section{
+    display: none;
+  }
+  .container{
+    width: 100vw;
+    position: static;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .containerForm{
+    margin-top: 150px;
+  }
+}
+
+@media (width <= 480px){
+  .container{
+    width: 100%;
+  }
+  .containerForm{
+    width: 80%;
+  }
+  .form{
+    width: 100%;
+  }
+  .form button{
+    width: 100%;
+  }
 }
