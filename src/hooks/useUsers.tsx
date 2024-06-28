@@ -20,6 +20,7 @@ const useUsers = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  user?.links && localStorage.setItem('user', JSON.stringify(user))
   const links: Urls[] | null = user?.links || null;
   const countries: Country[] | null = user?.countries || null;
   return { links, user, countries };
