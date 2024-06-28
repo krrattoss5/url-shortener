@@ -5,6 +5,7 @@ import AvatarMain from "./AvatarMain";
 import s from "./NabarDashboard.module.css";
 import { getOut } from "../../../constants";
 import { Link } from "react-router-dom";
+import MenuMobile from "./MenuMobile";
 
 interface Props {
   user: User | null;
@@ -21,9 +22,10 @@ const NavbarDashboard = ({ user }: Props) => {
 
   return (
     <header className={s.container}>
+      <MenuMobile />
       <button className={s.mainMenu} onClick={handleFocus}>
         <AvatarMain user={user} />
-        <span>{user ? user?.name : parsed?.name}</span>
+        <span className={s.span}>{user ? user?.name : parsed?.name}</span>
         <DropDownIcon />
       </button>
 
