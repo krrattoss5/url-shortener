@@ -19,6 +19,7 @@
   align-items: center;
   justify-content: center;
   width: 150px;
+  height: 70px;
   margin: 0 40px 0 0;
   gap: 8px;
   cursor: pointer;
@@ -34,7 +35,7 @@
   background-color: #273144;
   color: #fefefe;
   border-radius: 50%;
-  margin: 10px;
+  margin: auto;
   padding: 0 0 2.5px 0;
   width: 35px;
   height: 35px;
@@ -100,4 +101,19 @@
 
 * {
   text-decoration: none;
+}
+
+@media (width <= 860px){
+  .container{
+    justify-content: space-between;
+  }
+  .span{
+    display: none;
+  }
+  .mainMenu{
+    margin: 0;
+  }
+  .mainMenu svg {
+    display: none;
+  }
 }
