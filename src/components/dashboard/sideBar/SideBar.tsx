@@ -40,6 +40,7 @@ const SideBar = () => {
             icon={link.icon}
             label={link.label}
             isToggle={isToggle}
+            handleToggle={()=>{}}
           />
         ))}
       </section>
