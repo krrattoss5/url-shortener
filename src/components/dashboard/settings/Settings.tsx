@@ -8,9 +8,11 @@ interface Props {
 }
 
 const Settings = ({ user }: Props) => {
+  const dataUser = localStorage.getItem("user") as string;
+  const parsed: User | null = JSON.parse(dataUser);
   const [data, setData] = useState({
-    name: user?.name || "",
-    email: user?.email || "",
+    name: user?.name || parsed?.name || "",
+    email: user?.email || parsed?.email || "",
   });
 
   const [passwords, setPasswords] = useState({

@@ -8,24 +8,19 @@ import useUsers from "../../hooks/useUsers.tsx";
 import SingleLink from "./links/SingleLink.tsx";
 import Loading from "../Loading.tsx";
 import UpdateShortURL from "./shortURL/UpdateShortURL.tsx";
-import { type User } from "../../Types";
 const Home = lazy(() => import("./Home.tsx"));
 const Links = lazy(() => import("./links/Links.tsx"));
 const Settings = lazy(() => import("./settings/Settings.tsx"));
 
 const Dashboard = () => {
   const { links, user, countries } = useUsers();
-  const isLogin: User | null = !user
-    ? JSON.parse(localStorage.getItem("user"))
-    : null;
-
 
   return (
     <main className={s.main}>
       <SideBar />
 
       <section className={s.routeSection}>
-        <NavbarDashboard user={!isLogin ? user : isLogin} />
+        <NavbarDashboard user={user} />
         <div className={s.component}>
           <Suspense fallback={<Loading />}>
             <Routes>
@@ -34,7 +29,7 @@ const Dashboard = () => {
               <Route path="/links" element={<Links links={links} />} />
               <Route
                 path="/settings"
-                element={<Settings user={!isLogin ? user : isLogin} />}
+                element={<Settings user={user} />}
               />
               <Route path="/links/create" element={<CreateShortURL />} />
               <Route

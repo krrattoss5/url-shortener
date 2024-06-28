@@ -16,7 +16,7 @@ const NavbarDashboard = ({ user }: Props) => {
 
   const handleFocus = () => setIsModalvisible(!isModalVisible);
 
-  const data = localStorage.getItem("data-user") as string;
+  const data = localStorage.getItem("user") as string;
   const parsed: User | null = JSON.parse(data);
 
 
