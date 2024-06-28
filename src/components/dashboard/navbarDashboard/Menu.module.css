@@ -1,0 +1,98 @@
+.containerMenu{
+  gap: 4px;
+  width: 3rem;
+  height: 30px;
+  padding: 5px;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.menuToggle{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  left: 0;
+  top: 60px;
+  width: 100vw;
+  height: 90vh;
+  z-index: 9999;
+  position: absolute;
+  background: #ffffff;
+  border-top: solid 1px #e3e3e3;
+  transition: all 1s ease;
+}
+
+.menuToggle a{
+  width: 95%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 3px;
+}
+
+.link{
+  font-weight: 700;
+  font-size: 2.1rem;
+  line-height: 50px;
+  padding: 20px 0;
+  width: 100%;
+  color: #1f1e1e;
+  text-align: center;
+  border-bottom: solid 1px #e3e3e3;
+}
+
+.favicon{
+  position: absolute;
+  top: 20px;
+  left: 70px;
+  display: none;
+}
+
+.buttonOnToggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #022d94;
+  color: #fff;
+  border: none;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 10px;
+  border-radius: 5px;
+  width: 100%;
+  box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.24);
+}
+
+.buttonOnToggle.selected {
+  color: #fff;
+  padding: 8px 8px;
+  width: 100%;
+  font-weight: bold;
+}
+
+.buttonOnToggle.selected svg {
+  fill:#fff;
+}
+
+.buttonOnToggle:hover {
+  background: #0c3ebb;
+}
+
+@media (width <= 860px){
+  .containerMenu{
+    display: flex;
+  }
+  .favicon{
+    display: flex;
+  }
+}
+@media (width <= 480px){
+  .link{
+    font-size: 1.5rem;
+  }
+}
